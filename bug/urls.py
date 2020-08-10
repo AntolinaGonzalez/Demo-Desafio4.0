@@ -6,5 +6,5 @@ from django.conf import settings
 
 urlpatterns = [
     path('', paginaInicio, name='index'),
-    path('result', analisisImagen, name='result')
+    
 ]
