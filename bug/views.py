@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import UploadImage
 from .forms import AnalizarImagenes
 # Create your views here.
-
+cont = 1
 def paginaInicio(request):
     imagenes = AnalizarImagenes()
     contexto = {
@@ -20,7 +20,10 @@ def paginaInicio(request):
     return render(request, 'index.html',contexto)
 
 def analisisImagen(request):
-    imagenes= UploadImage.objects.all()
+    #encontrar solucion para esto, esta muy mal
+    global cont 
+    cont = cont + 1
+    imagenes= UploadImage.objects.last()
     contexto = {
         'imagenes': imagenes
     }

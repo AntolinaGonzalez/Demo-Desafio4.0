@@ -10,9 +10,11 @@ from django.contrib import messages
 # Create your models here.
 class UploadImage(models.Model):
     imageToCompare = models.ImageField(upload_to='images')
+    imageToCompareResult = models.ImageField(upload_to='images')
     imageTarget = models.ImageField(upload_to='images')
     objetivo = models.CharField(max_length=150)
-
+    created_document_timestamp = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    
     def __string__(self):
         return str(self.objetivo)
     
@@ -24,9 +26,9 @@ class UploadImage(models.Model):
         cv_Target = np.array(imgTarget)
 
         #execute the function
-        img = lookForTargetMessage(cv_compare,cv_Target,'objectivo')
+        mensaje = lookForTargetMessage(cv_compare,cv_Target,'objectivo')
         
-        return img 
+        return mensaje
     
     
 

@@ -1,8 +1,8 @@
 
 {% extends 'index.html' %}
 {% block template %}
-    {% for image in imagenes %}
-    <img src=" {{ image.imageTarget.url}}" alt="">
-    <p>{{ image.getResult }}</p>
-    {% endfor %}
+    {% if imagenes %}
+    <img src=" {{ imagenes.imageTarget.url}}" alt="">
+    <p>{{ imagenes.getResult }}</p>
+    {% endif %}
 {% endblock %}
