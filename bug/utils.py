@@ -14,14 +14,24 @@ def lookForTarget(Compare,Target):
 
     for pt in zip(*loc[::-1]):
         cv2.rectangle(copy_image, pt, (pt[0] + w, pt[1]+h), (0,255,0),3)
+    diff = cv2.absdiff(Compare, copy_image)
+    result =  not np.any(diff) 
+    
+    if result is True:
+        #no esta el target
+        lookForTargetMessage('El objetivo esta')
+        return Compare
+        
+    else:
+        #si esta el target
+        lookForTargetMessage('El objetivo esta')
+        return copy_image
 
-    return copy_image
 
-def lookForTargetMessage(Compare,Target, Objetivo):
-    flag = False
-    img = Compare
-    img2 = img.copy()
-    gray_img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+def lookForTargetMessage(Compare, Target, Objetivo):
+    copy_image = Compare.copy()
+    gray_img = cv2.cvtColor(Compare,cv2.COLOR_BGR2GRAY)
+    
     template = cv2.cvtColor(Target, cv2.COLOR_BGR2GRAY)
     w,h = template.shape[::-1]
 
@@ -29,14 +39,17 @@ def lookForTargetMessage(Compare,Target, Objetivo):
     loc = np.where(result >= 0.9)
 
     for pt in zip(*loc[::-1]):
-        cv2.rectangle(img2, pt, (pt[0] + w, pt[1]+h), (0,255,0),3)
-        
-
-
-    differences = cv2.subtract(Compare,Compare)
+        cv2.rectangle(copy_image, pt, (pt[0] + w, pt[1]+h), (0,255,0),3)
+    diff = cv2.absdiff(Compare, copy_image)
+    result =  not np.any(diff) 
     
-    print(flag)
-    if flag is True:
-        return 'El tornillo esta'
+    if result is True:
+        #no esta el target
+        return 'El objetivo no esta'
+        #return Compare
+        
     else:
-       return 'El tornillo no esta'
+        #si esta el target
+        return 'El objetivo esta'
+        #return copy_image
+    

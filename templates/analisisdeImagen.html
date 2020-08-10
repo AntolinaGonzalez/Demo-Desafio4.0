@@ -2,7 +2,7 @@
 {% extends 'index.html' %}
 {% block template %}
     {% for image in imagenes %}
-    <img src=" {{ image.imageToCompare.url}}" alt="">
+    <img src=" {{ image.imageTarget.url}}" alt="">
     <p>{{ image.getResult }}</p>
     {% endfor %}
 {% endblock %}

@@ -17,19 +17,6 @@ class UploadImage(models.Model):
         return str(self.objetivo)
     
     def getResult(self):
-        #open image
-        imgCompare = Image.open(self.imageToCompare)
-        imgTarget = Image.open(self.imageTarget)
-        objetivo = self.objetivo
-        #convert the image to array and do some processing
-        cv_compare = np.array(imgCompare)
-        cv_Target = np.array(imgTarget)
-        #execute the function
-        message = lookForTargetMessage(cv_compare,cv_Target, objetivo)
-        return message
-    
-    def save(self, *args, **kwargs):
-        #open image
         imgCompare = Image.open(self.imageToCompare)
         imgTarget = Image.open(self.imageTarget)
         #convert the image to array and do some processing
@@ -37,16 +24,10 @@ class UploadImage(models.Model):
         cv_Target = np.array(imgTarget)
 
         #execute the function
-        img = lookForTarget(cv_compare,cv_Target)
-
-        #CONVERT TO PIL IMAGE
-        im_pil = Image.fromarray(img)
-        mensaje = 'Hola que tela sensacional'
-        #save
-    
-        buffer = BytesIO()
-        im_pil.save(buffer, format='png')
-        image_png = buffer.getvalue()
+        img = lookForTargetMessage(cv_compare,cv_Target,'objectivo')
         
-        self.imageToCompare.save(str(self.imageToCompare), ContentFile(image_png), save=False)
-        super().save(*args,**kwargs)
+        return img 
+    
+    
+
+    
