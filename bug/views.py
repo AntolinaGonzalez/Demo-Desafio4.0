@@ -20,9 +20,6 @@ def paginaInicio(request):
     return render(request, 'index.html',contexto)
 
 def analisisImagen(request):
-    #encontrar solucion para esto, esta muy mal
-    global cont 
-    cont = cont + 1
     imagenes= UploadImage.objects.last()
     contexto = {
         'imagenes': imagenes

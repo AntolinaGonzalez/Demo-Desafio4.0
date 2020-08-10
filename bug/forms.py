@@ -11,4 +11,3 @@ class AnalizarImagenes(forms.ModelForm):
     class Meta:
         model = UploadImage
         fields = '__all__'
-        get_latest_by = 'created_document_timestamp'

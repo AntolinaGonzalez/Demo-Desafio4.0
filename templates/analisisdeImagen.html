@@ -2,7 +2,7 @@
 {% extends 'index.html' %}
 {% block template %}
     {% if imagenes %}
-    <img src=" {{ imagenes.imageTarget.url}}" alt="">
+    <img src=" {{ imagenes.imageToCompare.url}}" alt="">
     <p>{{ imagenes.getResult }}</p>
     {% endif %}
 {% endblock %}
