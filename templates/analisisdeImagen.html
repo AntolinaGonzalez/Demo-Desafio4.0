@@ -3,5 +3,6 @@
 {% block template %}
     {% for image in imagenes %}
     <img src=" {{ image.imageToCompare.url}}" alt="">
+    <p>{{ image.getResult }}</p>
     {% endfor %}
 {% endblock %}
