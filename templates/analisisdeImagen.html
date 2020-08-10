@@ -1,0 +1,7 @@
+
+{% extends 'index.html' %}
+{% block template %}
+    {% for image in imagenes %}
+    <img src=" {{ image.imageToCompare.url}}" alt="">
+    {% endfor %}
+{% endblock %}

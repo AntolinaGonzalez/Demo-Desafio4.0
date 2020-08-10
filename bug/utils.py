@@ -35,3 +35,6 @@ def lookForTarget(Compare,Target):
     # else:
     #     print('El tornillo esta')
     return copy_image
+
+def mensaje():
+    return 'hola bebe ya ando'

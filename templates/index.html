@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Landing Page</title>
+</head>
+
+<body>
+    <h1>Desafio 4.0</h1>
+    <h2>Deteccion optica de defectos repetitivos mediante comparacion de imagenes</h2>
+    <h1>Proyecto BUG</h3>
+        {% block template%}
+
+        <h2>Subir la imagen Target y la imagen a analizar</h2>
+
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+            
+                {% csrf_token %}
+                {{imagenes.as_p}}
+
+
+            <button type="submit">Analizar</button>
+        </form>
+
+
+        {% endblock%}
+</body>
+
+</html>

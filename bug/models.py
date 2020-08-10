@@ -1,5 +1,5 @@
 from django.db import models
-from .utils import get_filteres_image, lookForTarget
+from .utils import get_filteres_image, lookForTarget,mensaje
 from PIL import Image
 import numpy as np
 from io import BytesIO
@@ -38,12 +38,13 @@ class Upload(models.Model):
         self.image.save(str(self.image), ContentFile(image_png), save=False)
         super().save(*args,**kwargs)
 
-    
+
 
 class UploadImage(models.Model):
     imageToCompare = models.ImageField(upload_to='images')
     imageTarget = models.ImageField(upload_to='images')
     objetivo = models.CharField(max_length=150)
+    mensaje= 'hola bebe'
 
     def __string__(self):
         return str(self.objetivo)
