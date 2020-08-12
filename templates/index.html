@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Landing Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
@@ -23,22 +24,43 @@
    </div>
     
         {% block template%}
-
-        <h2>Subir la imagen Target y la imagen a analizar</h2>
-
-
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <!-- <a href="#" class="myButton">red</a> -->
+        <div class="opciones">
+            <button id="target">Nuevo Target</button>
+            <button id="analisis">Analizar Imagen</button>
+        </div>
+        <div id="target-form" class="hide">
+            <form action="#" method="POST" enctype="multipart/form-data">
+            
+                {% csrf_token %}
+                {{target.as_p}}
+    
+    
+            <button type="submit">Cargar</button>
+            </form>
+        </div>
+        
+        <div id="analisis-form" class="hide">
+            <form action="#" method="POST" enctype="multipart/form-data">
             
                 {% csrf_token %}
                 {{imagenes.as_p}}
 
 
             <button type="submit">Analizar</button>
-        </form>
+        </form> 
+        </div>
+
+        
 
 
         {% endblock%}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{% static 'js/style2.js' %}"></script>
+        <script src="{% static 'js/forms.js' %}"></script>
+       
+
+
     
 </body>
 

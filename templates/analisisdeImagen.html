@@ -2,7 +2,10 @@
 {% extends 'index.html' %}
 {% block template %}
     {% if imagenes %}
-    <img src=" {{ imagenes.imageToCompare.url}}" alt="">
-    <p>{{ imagenes.getResult }}</p>
+    <div class="resultado">
+        <img src=" {{ imagenes.imageToCompare.url}}" alt="">
+        <p>{{ imagenes.getResult }}</p>
+    </div>
+    
     {% endif %}
 {% endblock %}

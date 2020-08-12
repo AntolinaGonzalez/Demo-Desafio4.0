@@ -1,5 +1,5 @@
 from django import forms
-from .models import UploadImage
+from .models import UploadImages, UploadTarget
 from PIL import Image
 import numpy as np
 from io import BytesIO
@@ -9,5 +9,10 @@ from django.contrib import messages
 class AnalizarImagenes(forms.ModelForm):
 
     class Meta:
-        model = UploadImage
+        model = UploadImages
+        fields = '__all__'
+
+class CargarTarget(forms.ModelForm):
+    class Meta:
+        model = UploadTarget
         fields = '__all__'

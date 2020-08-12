@@ -10,7 +10,7 @@ canvas {
     z-index:-1;
 }
 
-h1,h2,h3{
+h1,h2,h3,p{
     color:wheat;
     font-family: 'Orbitron', sans-serif;
 }
@@ -31,4 +31,58 @@ h1,h2,h3{
 .sub-encabezado{
     text-align: center;
     font-size: 1.3rem;
+}
+/**menus**/
+.opciones{
+    display: flex;
+    justify-content: space-evenly;
+}
+/** botones **/
+
+.opciones button{
+    background-color: #810e05;
+    color:wheat;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.opciones button:hover{
+    cursor: pointer;
+    background-color: #8a2a21;
+}
+
+/**formularios**/
+.hide{
+    display: none;
+}
+#target-form form {
+    margin: 0 20%;
+}
+#target-form label, #analisis-form label{
+    color: white;
+    font-size: 20px;
+}
+#target-form input, #analisis-form input{
+    padding: 8px;
+    color: #810e05;
+    font-weight: 500;
+
+}
+#target-form button{
+    background-color: #810e05;
+    color:wheat;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 10%;
+}
+
+#analisis-form{
+    margin:0 60% ;
+}
+
+/** pagina analisisdeimagen.html **/
+.resultado{
+    text-align: center;
 }
