@@ -1,4 +1,5 @@
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +7,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Landing Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Desafio 4.0</h1>
+    <canvas id="c"></canvas>
+    <div class="encabezado">
+        <img class="logo" src="{% static 'images/logo2.jpeg' %}" alt="">
+        <h1>Desafio 4.0</h1>
+    </div>
+   <div class="sub-encabezado">
     <h2>Deteccion optica de defectos repetitivos mediante comparacion de imagenes</h2>
     <h1>Proyecto BUG</h3>
+   </div>
+    
         {% block template%}
 
         <h2>Subir la imagen Target y la imagen a analizar</h2>
@@ -28,6 +38,8 @@
 
 
         {% endblock%}
+        <script src="{% static 'js/style2.js' %}"></script>
+    
 </body>
 
 </html>

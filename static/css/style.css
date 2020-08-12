@@ -1,0 +1,34 @@
+body {
+    background: black;
+}
+canvas {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+h1,h2,h3{
+    color:wheat;
+    font-family: 'Orbitron', sans-serif;
+}
+.logo{
+    width: 20%;
+    height: 20%;
+
+}
+.encabezado{
+    margin: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.encabezado h1{
+    font-size: 4rem;
+}
+
+.sub-encabezado{
+    text-align: center;
+    font-size: 1.3rem;
+}
