@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def lookForTarget(Compare,Target, action):
+def lookForTarget(Compare,Target, action,objetivo):
     global  mensaje
     if action=='MATCH':
         copy_image = Compare.copy()
@@ -44,8 +44,12 @@ def lookForTarget(Compare,Target, action):
             cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
             sensitivity = 100
             f.add((round(pt[0]/sensitivity), round(pt[1]/sensitivity)))
-
-        mensaje = len(f)
+        if int(objetivo)== len(f):
+            mensaje = 'Exito!'
+        elif int(objetivo)>= len(f):
+            mensaje='Faltan objectos'
+        else:
+            mensaje='Hay objetos de mas'
         return img_rgb
         
 
