@@ -22,7 +22,7 @@ class UploadImages(models.Model):
     imageToCompare = models.ImageField(upload_to='images')
     imageTarget = models.ForeignKey(UploadTarget,on_delete=models.CASCADE)
     opcion = models.CharField(max_length=50, choices=Opciones)
-    objetivo = models.CharField(max_length=150)
+    objetivo = models.CharField(max_length=150, blank=True, null=True)
     
     def __str__(self):
         return str(self.objetivo)
@@ -41,7 +41,7 @@ class UploadImages(models.Model):
         cv_Target = np.array(imgTarget)
 
         #execute the function
-        img = lookForTarget(cv_compare,cv_Target, self.opcion)
+        img = lookForTarget(cv_compare,cv_Target, self.opcion, self.objetivo)
 
         #CONVERT TO PIL IMAGE
         im_pil = Image.fromarray(img)
