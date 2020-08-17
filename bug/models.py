@@ -6,7 +6,10 @@ import numpy as np
 from io import BytesIO
 from django.core.files.base import ContentFile
 from django.contrib import messages
-
+Opciones = (
+    ('MATCH', 'buscar un target'),
+    ('COUNT', 'Contar elementos'),
+)
 class UploadTarget(models.Model):
     nombre = models.CharField(max_length=40)
     target = models.ImageField(upload_to='images')
@@ -18,6 +21,7 @@ class UploadTarget(models.Model):
 class UploadImages(models.Model):
     imageToCompare = models.ImageField(upload_to='images')
     imageTarget = models.ForeignKey(UploadTarget,on_delete=models.CASCADE)
+    opcion = models.CharField(max_length=50, choices=Opciones)
     objetivo = models.CharField(max_length=150)
     
     def __str__(self):
@@ -37,7 +41,7 @@ class UploadImages(models.Model):
         cv_Target = np.array(imgTarget)
 
         #execute the function
-        img = lookForTarget(cv_compare,cv_Target)
+        img = lookForTarget(cv_compare,cv_Target, self.opcion)
 
         #CONVERT TO PIL IMAGE
         im_pil = Image.fromarray(img)
