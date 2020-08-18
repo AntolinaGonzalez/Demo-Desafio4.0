@@ -82,13 +82,7 @@ DATABASES = {
     }
 }
 
-AWS_ACCESS_KEY_ID='AKIASMAMJCFYVNVJBBKQ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'demodaybug'
-AWS_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
