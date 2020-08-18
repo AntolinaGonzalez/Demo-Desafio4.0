@@ -25,7 +25,7 @@ SECRET_KEY = '^k(lx&l&#pm6e9vu3zxrv__!sr5m5vn@1v6z!0d=w3lgifcy=n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bug',
+    'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -70,6 +70,25 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'desafio.wsgi.application'
+
+
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+AWS_ACCESS_KEY_ID='AKIASMAMJCFYVNVJBBKQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'demodaybug'
+AWS_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -108,8 +127,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 
